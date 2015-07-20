@@ -32,6 +32,28 @@ def rotate (number, rotateby, top, bottom=0):
     else:
         return number
 
+def makeRotatorFunction(top, bottom=0):
+	"""closure over function to repeatedly rotate based on a given range,
+    useful when multiple keys are to be generated based on the same range.
+    conceptually, returns a fixed-dimension padlock that you get to toy with.
+	actually returns a version of rotate() above with top and bottom fixed.
+	"""
+	def rotator(number, rotateby):
+		return rotate(number, rotateby, top, bottom)
+	return rotator
+
+def makeKeyFunction(rotateby, top, bottom=0):
+	"""another closure, just like above, except this fixes rotateby and
+    top/bottom useful for applying the same rotation to numerous items, e.g.,
+    a text to be encrypted by a caesar cipher.
+	"""
+	def rotator(number):
+		return rotate(number, rotateby, top, bottom)
+	return rotator
+
+# you probably don't need to worry about any of the sub-functions down below
+# unless something breaks.
+
 def forward0RT(number, rotateby, top):
     """This is the normal case, and also easiest to calculate
     """
@@ -60,39 +82,15 @@ def forwardXRT(number, rotateby, top, bottom):
 def backXRT(number, rotateby, top, bottom):
     offset = bottom
     unset = back0RT(number, rotateby, top)
-    #print 'unset is: ' + str(unset)
     numrotations = abs(rotateby) / (top - bottom)
     if number + rotateby <= 0:
         numrotations += 1
-    #print 'numrotations is: ' + str(numrotations)
     # the abs is necessary because integer division in python
     # floors rather than truncates.  which is stupid, but there you go.
     answer = unset - (offset * numrotations)
     if answer < bottom:
         answer += (top + 1)
     return answer
-
-def makeRotatorFunction(top, bottom=0):
-	"""closure over function to repeatedly rotate based on a given range,
-    useful when multiple keys are to be generated based on the same range.
-
-    conceptually, returns a fixed-dimension padlock that you get to toy with.
-
-	actually returns a version of rotate() above with top and bottom fixed.
-	"""
-	def rotator(number, rotateby):
-		return rotate(number, rotateby, top, bottom)
-	return rotator
-
-def makeKeyFunction(rotateby, top, bottom=0):
-	"""another closure, just like above, except this fixes rotateby and
-    top/bottom useful for applying the same rotation to numerous items, e.g.,
-    a text to be encrypted by a caesar cipher.
-	"""
-	def rotator(number):
-		return rotate(number, rotateby, top, bottom)
-	return rotator
-
 
 def runtests():
     """ obvs uncomment the call to this sucker below to test.  add more

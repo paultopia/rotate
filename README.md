@@ -15,8 +15,9 @@ arguments must be integers, and all can be positive or negative, but must satisf
 ValueError).  Top and bottom are both included in the scale.
 
 The mental model you should have here is of an old-school gym locker or combination padlock, where you turn the dial.  Or, of
-course, some kind of kids cryptography toy, with the letters  represented by integers.  In fact, I had one of those in my hand
-when I wrote this code.  But you can also imagine really dumb padlocks that go from, e.g., -1042 to 20.
+course, some kind of kids cryptography toy, with the letters  represented by integers.  In fact, I an actual padlock 
+in my hand when I wrote this code.  But you can also imagine really dumb padlocks that go from, e.g., -1042 to 20.  It's 
+the really dumb stupid ones that make this code surprisingly long (just modulo won't do the trick).
 
 The padlock I had in my hands has 40 ticks, from 0 to 39.  If you have one too, you can try out the following concrete examples:
 

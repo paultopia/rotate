@@ -70,7 +70,7 @@ def back0RT(number, rotateby, top):
 def forwardXRT(number, rotateby, top, bottom):
     offset = bottom
     unset = forward0RT(number, rotateby, top)
-    numrotations = rotateby / (top - bottom)
+    numrotations = rotateby // (top - bottom)
     if (rotateby + number > top) and (numrotations == 0):
         numrotations += 1
     answer = unset + (offset * numrotations)
@@ -82,7 +82,7 @@ def forwardXRT(number, rotateby, top, bottom):
 def backXRT(number, rotateby, top, bottom):
     offset = bottom
     unset = back0RT(number, rotateby, top)
-    numrotations = abs(rotateby) / (top - bottom)
+    numrotations = abs(rotateby) // (top - bottom)
     if number + rotateby <= 0:
         numrotations += 1
     # the abs is necessary because integer division in python

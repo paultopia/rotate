@@ -51,7 +51,7 @@ seem to like to show up when I start messing around with weird values for the pa
 negative), and there are a few kind of klugey fixes.  So if you should happen to find a test that breaks it, please do 
 file an issue, or just fix it yourself.  
 
-uses python 2.x not 3.x, and relies rather heavily on integer division, so, like, for serious.
+uses python 2.x not 3.x, and relies on integer division from same, so, like, for serious.
 
 LICENSE BLAH BLAH BLAH
 ----------------------

@@ -46,6 +46,10 @@ There are also test functions and such.  Testing is simple: uncomment the calls 
 
 Sooner or later, I'll figure out how to submit a package to pypi, and then this will actually turn into an installable module. 
 
+The code passes all the tests I could cook up for it, but all kinds of bizarre edge cases and off-by-one errors 
+seem to like to show up when I start messing around with weird values for the parameters (especially when things go 
+negative), and there are a few kind of klugey fixes.  So if you should happen to find a test that breaks it, please do 
+file an issue, or just fix it yourself.  
 
 
 LICENSE BLAH BLAH BLAH

@@ -10,7 +10,7 @@ Usage:
 rotate(number, rotateby, top, bottom=0)
 ```
 
-takes a *number* on a scale from *top* to *bottom* (which defaults to 0) and shifts it by *rotateby*.  All of the arguments must be integers, and all can be positive or negative, but must satisfy top >= rotateby >= bottom.  Top and bottom are both included in the scale.
+takes an initial *number* on a scale from *top* to *bottom* (which defaults to 0) and shifts it by *rotateby*.  All of the arguments must be integers, and all can be positive or negative, but must satisfy top >= number >= bottom.  Top and bottom are both included in the scale.
 
 The mental model you should have here is of an old-school gym locker or combination padlock, where you turn the dial.  Or, of
 course, some kind of kids cryptography toy, with the letters  represented by integers.  In fact, I had one of those in my hand
